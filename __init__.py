@@ -9,8 +9,8 @@ def exercice(valeur):
     etoiles = ''
     n = ''
     for i in range(n):
-        etoiles += ('*' * 'n' )
-    return etoiles #comm
+        etoiles += ('*')*valeur + '<br>'
+    return etoiles 
 
 
 if __name__ == "__main__":
