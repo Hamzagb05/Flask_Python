@@ -4,7 +4,7 @@ from flask import json
 app = Flask(__name__)                                                                                                                  
 
 
-@app.route('/<int:valeur>')
+@app.route('/<int:valeur>') #BALALA
 def exercice(valeur):
     etoiles = ''
     for i in range(valeur):
