@@ -4,12 +4,12 @@ from flask import json
 app = Flask(__name__)                                                                                                                  
 
 
-@app.route('/<int:valeur>') #BALALAq/
+@app.route('/<int:valeur>')
 def exercice(valeur):
     etoiles = ''
     for i in range(valeur): //Comm
         etoiles += '*'
-    return etoiles
+    return etoiles (9blala
 
 
 if __name__ == "__main__":
