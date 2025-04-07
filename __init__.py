@@ -2,28 +2,28 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/<path:valeurs>')
-def exercice(valeurs):
-    liste_nombres = valeurs.split('/')
-    liste_nombres = [int(n) for n in liste_nombres]
-
-    # Trouver le maximum et son indice sans utiliser max()
-    max_val = liste_nombres[0]
-    max_index = 0
-
-    for i in range(1, len(liste_nombres)):
-        if liste_nombres[i] > max_val:
-            max_val = liste_nombres[i]
-            max_index = i
-
-    return f"Le plus grand nombre est : {max_val}, à l'indice : {max_index}"
+@app.route('/<path:numbers>')
+def find_min(numbers):
+    try:
+        # Convertir les segments en nombres
+        numbers_list = [int(n) for n in numbers.split('/')]
+        
+        if not numbers_list:
+            return "Aucun nombre fourni", 400
+        
+        # Trouver le minimum manuellement
+        minimum = numbers_list[0]
+        for num in numbers_list[1:]:
+            if num < minimum:
+                minimum = num
+                
+        return f"{minimum}"  # Retourne juste la valeur minimale
+    
+    except ValueError:
+        return "Erreur: nombres invalides", 400
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-
-
-
-
+    app.run(host='0.0.0.0', port=5000)
 
 
 
