@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/<int:valeur>')
 def exercice(valeur):
     pyramide = ''
-    for i in range(1, valeur + 1):
+    for i in range(1, valeur - 1):
        
         left_side = ''.join(str(x) for x in range(1, i + 1))
        
