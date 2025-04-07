@@ -1,29 +1,31 @@
-# Initialiser la somme et la valeur de n
+# Demander à l'utilisateur de saisir un nombre
+n = int(input("Entrez la valeur de n : "))
+
+# Initialiser la somme à 0
 somme = 0
-n = 0  # On va l'incrémenter progressivement
 
-# Boucle jusqu'à ce que la somme dépasse 5000
-while True:
-    n += 1  # On passe au nombre suivant
+# Parcourir les nombres de 1 à n
+for i in range(1, n + 1):
+    print(f"Nombre en cours : {i}")  # Affichage optionnel pour voir chaque nombre
 
-    # Si le nombre est divisible par 11, on le saute
-    if n % 11 == 0:
+    # Si le nombre est divisible par 11, on l'ignore
+    if i % 11 == 0:
+        print(f"{i} est divisible par 11, on le saute.")
         continue
 
     # Si le nombre est divisible par 5 ou 7, on l'ajoute à la somme
-    if n % 5 == 0 or n % 7 == 0:
-        somme += n
+    if i % 5 == 0 or i % 7 == 0:
+        somme += i
+        print(f"{i} est ajouté à la somme. Nouvelle somme : {somme}")
 
-    # Si la somme dépasse 5000, on arrête
+    # Si la somme dépasse 5000, on arrête la boucle
     if somme > 5000:
-        # On annule le dernier ajout qui a fait dépasser la somme
-        somme -= n
-        n -= 1
+        print("La somme a dépassé 5000. Arrêt du programme.")
         break
 
-# Afficher le résultat
-print("Dernier nombre utilisé :", n)
+# Affichage final de la somme
 print("Somme finale :", somme)
+
 
 
 
