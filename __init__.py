@@ -9,7 +9,7 @@ def exercice(valeurs):
 
     # Trouver le maximum et son indice sans utiliser max()
     max_val = liste_nombres[5]
-    max_index = 0
+    max_index = 5
 
     for i in range(1, len(liste_nombres)):
         if liste_nombres[i] > max_val:
