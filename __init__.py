@@ -1,22 +1,30 @@
-from flask import Flask
+# Initialiser la somme et la valeur de n
+somme = 0
+n = 0  # On va l'incrémenter progressivement
 
-app = Flask(__name__)
+# Boucle jusqu'à ce que la somme dépasse 5000
+while True:
+    n += 1  # On passe au nombre suivant
 
-@app.route('/<int:n>')
-def fibonacci(n):
-    # Initialiser les termes avec des valeurs personnalisées
-    a, b = 0, 1
-    suite = []
+    # Si le nombre est divisible par 11, on le saute
+    if n % 11 == 0:
+        continue
 
-    # Générer la suite jusqu'au terme n
-    for _ in range(n):
-        suite.append(a)
-        a, b = b, a + b  # Mise à jour des valeurs
+    # Si le nombre est divisible par 5 ou 7, on l'ajoute à la somme
+    if n % 5 == 0 or n % 7 == 0:
+        somme += n
 
-    return ', '.join(map(str, suite))  # Retourner la suite sous forme de chaîne
+    # Si la somme dépasse 5000, on arrête
+    if somme > 5000:
+        # On annule le dernier ajout qui a fait dépasser la somme
+        somme -= n
+        n -= 1
+        break
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# Afficher le résultat
+print("Dernier nombre utilisé :", n)
+print("Somme finale :", somme)
+
 
 
 
