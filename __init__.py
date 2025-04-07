@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/<int:n>')
 def fibonacci(n):
     # Initialiser les deux premiers termes
-    a, b = 0, 1
+    a = 0, 1
     suite = []
 
     # Générer la suite jusqu'au terme n
